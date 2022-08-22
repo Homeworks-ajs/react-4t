@@ -1,11 +1,12 @@
-import ColorBody from "./components/color-body/ColorBody";
+import React from 'react'
+import ListWrapper from './components/list-wrapper/ListWrapper'
 
 function App() {
-  return <div className="container p-0">
-    <div className="color-wrapper">
-      <ColorBody />
+  return (
+    <div className="component">
+        <ListWrapper />
     </div>
-  </div>
+  )
 }
 
-export default App;
+export default App
