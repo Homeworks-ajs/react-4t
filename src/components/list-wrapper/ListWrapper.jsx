@@ -9,13 +9,14 @@ function ListWrapper() {
     const onAppend = evt => {
         evt.preventDefault();
         const [date, progress] = evt.target.form;
-        const progressValue = progress.valueAsNumber;
+
+        const valueOfNewDate = new Date(date.valueAsNumber).valueOf();
 
         const newData = {
-            date: date.valueAsNumber,
-            progress: (!dataList.length)
-                ? progressValue 
-                : dataList.reduce((a, b) => a + b.progress, 0) + progressValue,
+            date: valueOfNewDate,
+            progress: dataList
+                .filter(el => el.date === valueOfNewDate)
+                .reduce((a, b) => a + b.progress, 0) + progress.valueAsNumber,
             id: shortid.generate()
         }
 
