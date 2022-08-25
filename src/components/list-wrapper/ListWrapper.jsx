@@ -20,7 +20,7 @@ function ListWrapper() {
             id: shortid.generate()
         }
 
-        setDataList([...dataList, newData].sort((a, b) => a.date < b.date));
+        setDataList([...dataList.filter(el => el.date !== valueOfNewDate), newData].sort((a, b) => a.date < b.date));
     }
 
     const onRemove = evt => {
